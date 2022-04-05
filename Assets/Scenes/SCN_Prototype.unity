@@ -377,9 +377,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  speedRun: 7
   friction: {x: -0.1, y: 0}
-  leftMoviment: 97
-  rigthMoviment: 100
+  leftKey: 97
+  rightKey: 100
+  runningKey: 304
   jumpForce: 7
   jumpKey: 119
 --- !u!1 &647641989

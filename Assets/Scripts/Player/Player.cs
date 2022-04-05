@@ -6,14 +6,17 @@ public class Player : MonoBehaviour {
 
     [Header("Moviments")]
     [SerializeField] float speed;
+    [SerializeField] float speedRun;
     [SerializeField] Vector2 friction = new Vector2(-.1f, 0);
-    [SerializeField] KeyCode leftMoviment;
-    [SerializeField] KeyCode rigthMoviment;
+    [SerializeField] KeyCode leftKey;
+    [SerializeField] KeyCode rightKey;
+    [SerializeField] KeyCode runningKey;
     [Header("Jump")]
     [SerializeField] float jumpForce;
     [SerializeField] KeyCode jumpKey;
 
     Rigidbody2D  _myRigid;
+    bool _isRunning = false;
 
     void Start() {
         _myRigid = GetComponent<Rigidbody2D>();
@@ -31,10 +34,11 @@ public class Player : MonoBehaviour {
     }
 
     void HandleMoviment() {
-        if (Input.GetKey(rigthMoviment)) {
-            _myRigid.velocity = new Vector2(speed, _myRigid.velocity.y);
-        } else if(Input.GetKey(leftMoviment)) {
-            _myRigid.velocity = new Vector2(-speed, _myRigid.velocity.y);
+        _isRunning = Input.GetKey(runningKey);
+        if (Input.GetKey(rightKey)) {
+            _myRigid.velocity = new Vector2(!_isRunning ? speed : speedRun, _myRigid.velocity.y);
+        } else if(Input.GetKey(leftKey)) {
+            _myRigid.velocity = new Vector2(!_isRunning ? -speed : -speedRun, _myRigid.velocity.y);
         }
         HandleFriction();
     }
