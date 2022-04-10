@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour {
 
@@ -10,21 +11,28 @@ public class Player : MonoBehaviour {
     [SerializeField] Vector2 friction = new Vector2(-.1f, 0);
     [SerializeField] KeyCode leftKey;
     [SerializeField] KeyCode rightKey;
-    [SerializeField] KeyCode runningKey;
     [Header("Jump")]
     [SerializeField] float jumpForce;
     [SerializeField] KeyCode jumpKey;
+    [Header("Animations")]
+    [SerializeField] Animator myAnim;
+    [SerializeField] string runVariable = "Run";
 
     Rigidbody2D  _myRigid;
-    bool _isRunning = false;
 
     void Start() {
         _myRigid = GetComponent<Rigidbody2D>();
     }
 
     void Update() {
+        HandleAnimation();
         HandleJump();
         HandleMoviment();
+    }
+
+    void HandleAnimation() {
+        if (_myRigid.velocity.x != 0) myAnim.SetBool(runVariable, true);
+        else myAnim.SetBool(runVariable, false);
     }
 
     void HandleJump() {
@@ -34,13 +42,18 @@ public class Player : MonoBehaviour {
     }
 
     void HandleMoviment() {
-        _isRunning = Input.GetKey(runningKey);
         if (Input.GetKey(rightKey)) {
-            _myRigid.velocity = new Vector2(!_isRunning ? speed : speedRun, _myRigid.velocity.y);
+            _myRigid.velocity = new Vector2(speed, _myRigid.velocity.y);
+            Flip(1);
         } else if(Input.GetKey(leftKey)) {
-            _myRigid.velocity = new Vector2(!_isRunning ? -speed : -speedRun, _myRigid.velocity.y);
+            _myRigid.velocity = new Vector2(-speed, _myRigid.velocity.y);
+            Flip(-1);
         }
         HandleFriction();
+    }
+
+    void Flip(int scale) {
+        transform.DOScaleX(scale, .1f);
     }
 
     void HandleFriction() {
