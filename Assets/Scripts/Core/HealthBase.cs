@@ -6,6 +6,8 @@ public class HealthBase : MonoBehaviour {
     [Header("Life")]
     [SerializeField] int totalLife;
     [SerializeField] bool destroyOnKill = false;
+    [Header("Visual")]
+    [SerializeField] FlashColor flashColor;
 
     int _currentLife;
     bool _isDead;
@@ -24,5 +26,6 @@ public class HealthBase : MonoBehaviour {
         if (_isDead) return;
         _currentLife -= damage;
         if (_currentLife <= 0) Kill();
+        if (flashColor != null) flashColor.Flash();
     }
 }
