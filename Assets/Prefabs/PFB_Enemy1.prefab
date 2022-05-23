@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 6490466553855594700}
   - component: {fileID: 6490466553855594547}
   - component: {fileID: 6490466553855594546}
+  - component: {fileID: 1233718620}
+  - component: {fileID: 1233718616}
+  - component: {fileID: 1233718617}
   m_Layer: 0
   m_Name: PFB_Enemy1
   m_TagString: Untagged
@@ -59,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   attackTrigger: Attack
+  health: {fileID: 1233718617}
   enemyAnimator: {fileID: 8883512241589462031}
 --- !u!70 &6490466553855594546
 CapsuleCollider2D:
@@ -76,6 +80,63 @@ CapsuleCollider2D:
   m_Offset: {x: 0.106060505, y: 3.46}
   m_Size: {x: 4, y: 6.5}
   m_Direction: 0
+--- !u!50 &1233718620
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6490466553855594545}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!114 &1233718616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6490466553855594545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2e1ced9f0043f4c9333f967ee2a5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderers:
+  - {fileID: 8622947899452321580}
+  - {fileID: 7080554010220449604}
+  - {fileID: 8272996897725112497}
+  - {fileID: 3295136368276349828}
+  - {fileID: 7425211052976035699}
+  - {fileID: 8134983360832793319}
+  flashColor: {r: 0.8679245, g: 0.5758246, b: 0.42168033, a: 1}
+  duration: 0.3
+--- !u!114 &1233718617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6490466553855594545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dee249b7de105b49bdfb6351c33a3db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalLife: 10
+  destroyOnKill: 1
+  flashColor: {fileID: 1233718616}
 --- !u!1001 &6490466552494480385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,5 +254,35 @@ Transform:
 --- !u!95 &8883512241589462031 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2403329696302037006, guid: 3de838754c767a446a5473969062a84e, type: 3}
+  m_PrefabInstance: {fileID: 6490466552494480385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8622947899452321580 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3294411287784764205, guid: 3de838754c767a446a5473969062a84e, type: 3}
+  m_PrefabInstance: {fileID: 6490466552494480385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7080554010220449604 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4058282757918593861, guid: 3de838754c767a446a5473969062a84e, type: 3}
+  m_PrefabInstance: {fileID: 6490466552494480385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8272996897725112497 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2944600070154927280, guid: 3de838754c767a446a5473969062a84e, type: 3}
+  m_PrefabInstance: {fileID: 6490466552494480385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3295136368276349828 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8622257899716607877, guid: 3de838754c767a446a5473969062a84e, type: 3}
+  m_PrefabInstance: {fileID: 6490466552494480385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7425211052976035699 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4402658883949824882, guid: 3de838754c767a446a5473969062a84e, type: 3}
+  m_PrefabInstance: {fileID: 6490466552494480385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8134983360832793319 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3096084783782573798, guid: 3de838754c767a446a5473969062a84e, type: 3}
   m_PrefabInstance: {fileID: 6490466552494480385}
   m_PrefabAsset: {fileID: 0}

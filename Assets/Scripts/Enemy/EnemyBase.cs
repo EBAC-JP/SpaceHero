@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour {
     [SerializeField] int damage;
     [SerializeField] string attackTrigger = "Attack";
-
+    [SerializeField] HealthBase health;
     [SerializeField] Animator enemyAnimator;
 
     void OnTriggerEnter2D(Collider2D collider) {
@@ -18,5 +18,9 @@ public class EnemyBase : MonoBehaviour {
 
     void PlayAttackAnimation() {
         enemyAnimator.SetTrigger(attackTrigger);
+    }
+
+    public void Damage(int amount) {
+        health.Damage(amount);
     }
 }
