@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +7,10 @@ public class HealthBase : MonoBehaviour {
     [Header("Life")]
     [SerializeField] int totalLife;
     [SerializeField] bool destroyOnKill = false;
+    [SerializeField] float destroyDelay = 0f;
     [Header("Visual")]
     [SerializeField] FlashColor flashColor;
+    [SerializeField] public Action OnKill;
 
     int _currentLife;
     bool _isDead;
@@ -19,7 +22,8 @@ public class HealthBase : MonoBehaviour {
 
     void Kill() {
         _isDead = true;
-        if (destroyOnKill) Destroy(gameObject);
+        OnKill?.Invoke();
+        if (destroyOnKill) Destroy(gameObject, destroyDelay);
     }
 
     public void Damage(int damage) {

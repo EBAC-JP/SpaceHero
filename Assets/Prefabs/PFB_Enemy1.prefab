@@ -60,9 +60,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e9f1279ac83964e853015722f51ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 1233718617}
   damage: 2
   attackTrigger: Attack
-  health: {fileID: 1233718617}
+  deathTrigger: Death
   enemyAnimator: {fileID: 8883512241589462031}
 --- !u!70 &6490466553855594546
 CapsuleCollider2D:
@@ -136,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalLife: 10
   destroyOnKill: 1
+  destroyDelay: 1.2
   flashColor: {fileID: 1233718616}
 --- !u!1001 &6490466552494480385
 PrefabInstance:

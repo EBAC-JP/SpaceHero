@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Player : MonoBehaviour {
 
+    [SerializeField] HealthBase health;
     [Header("Moviments")]
     [SerializeField] float speed;
     [SerializeField] float speedRun;
@@ -17,8 +18,13 @@ public class Player : MonoBehaviour {
     [Header("Animations")]
     [SerializeField] Animator myAnim;
     [SerializeField] string runVariable = "Run";
+    [SerializeField] string deathTrigger = "Death";
 
     Rigidbody2D  _myRigid;
+
+    void Awake() {
+        if (health != null) health.OnKill += OnPlayerDeath;
+    }
 
     void Start() {
         _myRigid = GetComponent<Rigidbody2D>();
@@ -59,5 +65,14 @@ public class Player : MonoBehaviour {
     void HandleFriction() {
         if (_myRigid.velocity.x > 0) _myRigid.velocity += friction;
         else if (_myRigid.velocity.x < 0) _myRigid.velocity -= friction;
+    }
+
+    void OnPlayerDeath() {
+        health.OnKill -= OnPlayerDeath;
+        myAnim.SetTrigger(deathTrigger);
+    }
+
+    public void DestroyMe() {
+        Destroy(gameObject);
     }
 }
