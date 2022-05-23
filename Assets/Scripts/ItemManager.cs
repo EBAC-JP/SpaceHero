@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ItemManager : Singleton<ItemManager> {
 
-    public int qtdCoins;
+    [SerializeField] TMP_Text coinsText;
+    [SerializeField] public int qtdCoins;
     void Start() {
         Reset();
+    }
+
+    void Update() {
+        coinsText.text = "x " + qtdCoins.ToString();
     }
 
     void Reset() {
