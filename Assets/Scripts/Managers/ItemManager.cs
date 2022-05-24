@@ -1,25 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ItemManager : Singleton<ItemManager> {
 
-    [SerializeField] TMP_Text coinsText;
-    [SerializeField] public int qtdCoins;
+    [SerializeField] SOInteger coins;
+
     void Start() {
         Reset();
     }
 
-    void Update() {
-        coinsText.text = "x " + qtdCoins.ToString();
-    }
-
     void Reset() {
-        qtdCoins = 0;
+        coins.value = 0;
+        UIManager.UpdateCoinsTexts(coins.value);
     }
 
     public void AddCoins(int amount = 1) {
-        qtdCoins += amount;
+        coins.value += amount;
+        UIManager.UpdateCoinsTexts(coins.value);
     }
 }
