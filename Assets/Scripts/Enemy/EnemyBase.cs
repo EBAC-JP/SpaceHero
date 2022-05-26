@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour {
     [SerializeField] HealthBase health;
-    [SerializeField] int damage;
-    [Header("Animations")]
-    [SerializeField] string attackTrigger = "Attack";
-    [SerializeField] string deathTrigger = "Death";
+    [SerializeField] SOEnemy enemy;
     [SerializeField] Animator enemyAnimator;
 
     void Awake() {
@@ -22,17 +19,17 @@ public class EnemyBase : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         var health = collider.GetComponent<HealthBase>();
         if (health != null) {
-            health.Damage(damage);
+            health.Damage(enemy.damage);
             PlayAttackAnimation();
         }
     }
 
     void PlayAttackAnimation() {
-        enemyAnimator.SetTrigger(attackTrigger);
+        enemyAnimator.SetTrigger(enemy.attackTrigger);
     }
 
     void PlayDeathAnimation() {
-        enemyAnimator.SetTrigger(deathTrigger);
+        enemyAnimator.SetTrigger(enemy.deathTrigger);
     }
 
     public void Damage(int amount) {

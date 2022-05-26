@@ -1334,9 +1334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dee249b7de105b49bdfb6351c33a3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLife: 5
-  destroyOnKill: 0
-  destroyDelay: 0
+  health: {fileID: 11400000, guid: 8a6feb70171a0754dbd3b28b131b8cc4, type: 2}
   flashColor: {fileID: 1493252949}
 --- !u!210 &576478132
 SortingGroup:
@@ -4677,10 +4675,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1233718617, guid: 2f9ce6bc43a5b154f970eeb31bbfc3b4, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 11400000, guid: eb9db0ebcd9a8f9408eb895306eef86e, type: 2}
     - target: {fileID: 6490466553855594545, guid: 2f9ce6bc43a5b154f970eeb31bbfc3b4, type: 3}
       propertyPath: m_Name
       value: PFB_Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 6490466553855594547, guid: 2f9ce6bc43a5b154f970eeb31bbfc3b4, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 11400000, guid: eb1d17ccd2b498a4a88743eefa9d748a, type: 2}
     - target: {fileID: 6490466553855594701, guid: 2f9ce6bc43a5b154f970eeb31bbfc3b4, type: 3}
       propertyPath: m_RootOrder
       value: 5
