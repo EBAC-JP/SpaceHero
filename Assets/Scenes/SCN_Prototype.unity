@@ -1320,16 +1320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 576478131}
-  speed: 7
-  speedRun: 10
-  friction: {x: -0.3, y: 0}
-  leftKey: 97
-  rightKey: 100
-  jumpForce: 12
-  jumpKey: 32
   myAnim: {fileID: 313452149}
-  runVariable: Run
-  deathTrigger: Death
+  playerSetup: {fileID: 11400000, guid: 519081b68f0c00149afe7952b9d1ee77, type: 2}
 --- !u!114 &576478131
 MonoBehaviour:
   m_ObjectHideFlags: 0
