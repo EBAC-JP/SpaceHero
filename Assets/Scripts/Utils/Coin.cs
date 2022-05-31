@@ -5,13 +5,17 @@ using UnityEngine;
 public class Coin : CollactableBase {
 
     [SerializeField] int value = 1;
+    [SerializeField] float deathDelay;
+    [SerializeField] GameObject graphicItem;
 
     protected override void Collect() {
-        gameObject.SetActive(false);
+        if (graphicItem != null) graphicItem.SetActive(false);
         OnCollect();
+        Destroy(gameObject, deathDelay);
     }
 
     protected override void OnCollect() {
+        base.OnCollect();
         ItemManager.Instance.AddCoins(value);
     }
 }

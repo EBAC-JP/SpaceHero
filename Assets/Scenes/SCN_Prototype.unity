@@ -542,6 +542,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 430081264}
     m_Modifications:
+    - target: {fileID: 271254581, guid: 6f66981d6a941ba438646ca70f40ff25, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867486756}
     - target: {fileID: 282973171146941364, guid: 6f66981d6a941ba438646ca70f40ff25, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2929,6 +2933,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 430081264}
     m_Modifications:
+    - target: {fileID: 158986052, guid: 84eb6a85a4e7cc14da98ac90d72714b7, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867486756}
     - target: {fileID: 2249315548361708814, guid: 84eb6a85a4e7cc14da98ac90d72714b7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3024,6 +3032,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 430081264}
     m_Modifications:
+    - target: {fileID: 643026072, guid: 6dd5a5a55b20dfe40b65c3f7e9e718b5, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.data[0]
+      value: 
+      objectReference: {fileID: 1867486756}
     - target: {fileID: 5970447542091035836, guid: 6dd5a5a55b20dfe40b65c3f7e9e718b5, type: 3}
       propertyPath: m_RootOrder
       value: 1

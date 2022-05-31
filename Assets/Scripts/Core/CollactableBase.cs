@@ -5,8 +5,12 @@ using UnityEngine;
 public class CollactableBase : MonoBehaviour {
 
     [SerializeField] string targetTag;
+    [SerializeField] ParticleSystem particle;
+
     protected virtual void Collect() {}
-    protected virtual void OnCollect() {}
+    protected virtual void OnCollect() {
+        if (particle != null) particle.Play();
+    }
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if(collider.CompareTag(targetTag)) {
