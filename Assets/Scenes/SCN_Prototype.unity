@@ -1213,6 +1213,7 @@ MonoBehaviour:
   myAnim: {fileID: 313452149}
   playerSetup: {fileID: 11400000, guid: 519081b68f0c00149afe7952b9d1ee77, type: 2}
   jumpVFX: {fileID: 1312643026}
+  walkVFX: {fileID: 820318588}
 --- !u!114 &576478131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,7 +1714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &820318586
 Transform:
   m_ObjectHideFlags: 0
@@ -14381,6 +14382,10 @@ PrefabInstance:
     - target: {fileID: 8973019920596763639, guid: 62cea0b07ad091b4fa541e1355efbc19, type: 3}
       propertyPath: m_Name
       value: Walk_Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 8973019920596763639, guid: 62cea0b07ad091b4fa541e1355efbc19, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62cea0b07ad091b4fa541e1355efbc19, type: 3}

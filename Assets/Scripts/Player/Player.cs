@@ -5,10 +5,13 @@ using DG.Tweening;
 
 public class Player : MonoBehaviour {
 
+    [Header("Setup")]
     [SerializeField] HealthBase health;
     [SerializeField] Animator myAnim;
     [SerializeField] SOPlayer playerSetup;
+    [Header("Particles")]
     [SerializeField] ParticleSystem jumpVFX;
+    [SerializeField] ParticleSystem walkVFX;
 
     float _distToGround;
     Rigidbody2D  _myRigid;
@@ -26,8 +29,15 @@ public class Player : MonoBehaviour {
 
     void Update() {
         HandleAnimation();
+        HandleParticles();
         HandleJump();
         HandleMoviment();
+    }
+
+    void HandleParticles() {
+        if (IsGrounded() && walkVFX.isPaused) {
+            walkVFX.Play();
+        }
     }
 
     void HandleAnimation() {
@@ -39,6 +49,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(playerSetup.jumpKey) && IsGrounded()) {
             _myRigid.velocity = Vector2.up * playerSetup.jumpForce;
             if (jumpVFX != null) jumpVFX.Play();
+            Invoke(nameof(StopWalkParticle), 0.2f);
         }
     }
 
@@ -60,6 +71,10 @@ public class Player : MonoBehaviour {
     void HandleFriction() {
         if (_myRigid.velocity.x > 0) _myRigid.velocity += playerSetup.friction;
         else if (_myRigid.velocity.x < 0) _myRigid.velocity -= playerSetup.friction;
+    }
+
+    void StopWalkParticle() {
+        walkVFX.Pause();
     }
 
     void OnPlayerDeath() {
