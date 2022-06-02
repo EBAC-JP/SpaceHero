@@ -8,8 +8,11 @@ public class Player : MonoBehaviour {
     [SerializeField] HealthBase health;
     [SerializeField] Animator myAnim;
     [SerializeField] SOPlayer playerSetup;
+    [SerializeField] ParticleSystem jumpVFX;
 
+    float _distToGround;
     Rigidbody2D  _myRigid;
+    Collider2D _myCollider;
 
     void Awake() {
         if (health != null) health.OnKill += OnPlayerDeath;
@@ -17,6 +20,8 @@ public class Player : MonoBehaviour {
 
     void Start() {
         _myRigid = GetComponent<Rigidbody2D>();
+        _myCollider = GetComponent<Collider2D>();
+        _distToGround = _myCollider.bounds.extents.y;
     }
 
     void Update() {
@@ -31,8 +36,9 @@ public class Player : MonoBehaviour {
     }
 
     void HandleJump() {
-        if (Input.GetKeyDown(playerSetup.jumpKey)) {
+        if (Input.GetKeyDown(playerSetup.jumpKey) && IsGrounded()) {
             _myRigid.velocity = Vector2.up * playerSetup.jumpForce;
+            if (jumpVFX != null) jumpVFX.Play();
         }
     }
 
@@ -59,6 +65,10 @@ public class Player : MonoBehaviour {
     void OnPlayerDeath() {
         health.OnKill -= OnPlayerDeath;
         myAnim.SetTrigger(playerSetup.deathTrigger);
+    }
+
+    bool IsGrounded() {
+        return Physics2D.Raycast(transform.position, -Vector2.up, _distToGround + playerSetup.spaceToJump);
     }
 
     public void DestroyMe() {

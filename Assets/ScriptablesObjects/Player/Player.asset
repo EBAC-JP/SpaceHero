@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   friction: {x: -0.1, y: 0}
-  jumpForce: 15
+  jumpForce: 12
+  spaceToJump: 0.1
+  jumpVFX: {fileID: 4105127887936880194, guid: 659a50163da605743b3bcf3ba092315a, type: 3}
   leftKey: 97
   rightKey: 100
   jumpKey: 32
