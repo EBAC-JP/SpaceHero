@@ -24,4 +24,8 @@ public class GameManager : Singleton<GameManager> {
         _currentPlayer.transform.DOScale(0, duration).SetDelay(delay).SetEase(playerEase).From();
     }
 
+    public static void ChangeTimeScale(int scale) {
+        Time.timeScale = scale;
+    }
+
 }
