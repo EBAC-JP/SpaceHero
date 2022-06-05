@@ -6,10 +6,12 @@ public class CollactableBase : MonoBehaviour {
 
     [SerializeField] string targetTag;
     [SerializeField] ParticleSystem particle;
+    [SerializeField] AudioSource audioSource;
 
     protected virtual void Collect() {}
     protected virtual void OnCollect() {
         if (particle != null) particle.Play();
+        if (audioSource != null) audioSource.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {

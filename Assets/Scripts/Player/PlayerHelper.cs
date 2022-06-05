@@ -7,7 +7,7 @@ public class PlayerHelper : MonoBehaviour {
     [SerializeField] Player player;
 
     public void Kill() {
-        player.DestroyMe();
+        if (player != null) player.DestroyMe();
     }
 
 }
