@@ -46,11 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc10c812826b56049b59b99bd7d899e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 11400000, guid: bcdae93d9ef4fa94b827e4e416497a16, type: 2}
   side: 1
-  direction: {x: 15, y: 0}
-  damage: 2
-  timeToDestroy: 2
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 1553121880626724737}
 --- !u!58 &621664062462903503
 CircleCollider2D:
   m_ObjectHideFlags: 0

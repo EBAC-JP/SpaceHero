@@ -26,6 +26,7 @@ public class HealthBase : MonoBehaviour {
     public void Damage(int damage) {
         if (_isDead) return;
         _currentLife -= damage;
+        //if (health.damageSource != null) health.damageSource.Play();
         if (_currentLife <= 0) Kill();
         if (flashColor != null) flashColor.Flash();
     }

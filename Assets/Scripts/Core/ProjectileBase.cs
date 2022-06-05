@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class ProjectileBase : MonoBehaviour {
 
+    [SerializeField] SOProjectile projectile;
     [SerializeField] public float side;
-    [SerializeField] Vector2 direction;
-    [SerializeField] int damage;
-    [SerializeField] float timeToDestroy = 2f;
     [SerializeField] AudioSource shootSound;
 
     void Awake() {
         if (shootSound != null) shootSound.Play();
-        Destroy(gameObject, timeToDestroy);
+        Destroy(gameObject, projectile.timeToDestroy);
     }
 
     void Update() {
-        transform.Translate(direction * Time.deltaTime * side);
+        transform.Translate(projectile.direction * Time.deltaTime * side);
     }
 
     private void OnTriggerEnter2D(Collider2D collider2D) {
         var enemy = collider2D.gameObject.GetComponent<EnemyBase>();
         if (enemy != null) {
-            enemy.Damage(damage);
+            enemy.Damage(projectile.damage);
             Destroy(gameObject);
         }
     }
