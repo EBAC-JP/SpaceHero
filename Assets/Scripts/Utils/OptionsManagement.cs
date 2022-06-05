@@ -17,6 +17,7 @@ public class OptionsManagement : MonoBehaviour {
 
     public void Back() {
         if (title != null) title.SetActive(true);
+        if (selectSource != null) selectSource.Play();
         OptionsMenu.SetActive(false);
         GameManager.ChangeTimeScale(1);
     }

@@ -18,6 +18,7 @@ public class SceneManagement : MonoBehaviour {
     }
 
     public void QuitGame() {
+        if (selectSource != null) selectSource.Play();
         Application.Quit();
     }
 }
