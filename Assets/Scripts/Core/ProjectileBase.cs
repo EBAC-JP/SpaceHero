@@ -8,8 +8,10 @@ public class ProjectileBase : MonoBehaviour {
     [SerializeField] Vector2 direction;
     [SerializeField] int damage;
     [SerializeField] float timeToDestroy = 2f;
+    [SerializeField] AudioSource shootSound;
 
     void Awake() {
+        if (shootSound != null) shootSound.Play();
         Destroy(gameObject, timeToDestroy);
     }
 
