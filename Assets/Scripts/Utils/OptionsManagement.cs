@@ -6,9 +6,11 @@ public class OptionsManagement : MonoBehaviour {
 
     [SerializeField] GameObject OptionsMenu;
     [SerializeField] GameObject title;
+    [SerializeField] AudioSource selectSource;
 
     public void ShowOptions() {
         if (title != null) title.SetActive(false);
+        if (selectSource != null) selectSource.Play();
         OptionsMenu.SetActive(true);
         GameManager.ChangeTimeScale(0);
     }
