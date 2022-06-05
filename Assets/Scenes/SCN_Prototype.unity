@@ -1142,6 +1142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 11400000, guid: 8a6feb70171a0754dbd3b28b131b8cc4, type: 2}
   flashColor: {fileID: 1493252949}
+  damageSource: {fileID: 1715563149}
 --- !u!210 &576478132
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -1391,21 +1392,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 576478130}
     - target: {fileID: 1493252950, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
-      propertyPath: audioClips.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1493252950, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
-      propertyPath: audioClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: a476e34385a8f43f5a7cd7280badc54f, type: 3}
-    - target: {fileID: 1493252950, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
-      propertyPath: audioClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: e483ce536f3b9e542a419f5e2cc8d463, type: 3}
-    - target: {fileID: 1493252950, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
       propertyPath: audioClips.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: c6b481d42a0f2dd44a6546f0f3d57349, type: 3}
+    - target: {fileID: 193078974741926670, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8007466312498025151, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12702,6 +12695,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &1715563149 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2974972285785796851, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  m_PrefabInstance: {fileID: 703477916}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1720581970
 GameObject:
   m_ObjectHideFlags: 0
