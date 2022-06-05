@@ -25,4 +25,10 @@ public class PlayerHelper : MonoBehaviour {
         if (player.IsGrounded()) audioSources[index].Play();
     }
 
+    public void JumpSFX() {
+        int index = (int)SoundActions.Jump;
+        audioSources[index].clip = audioClips[index];
+        audioSources[index].Play();
+    }
+
 }

@@ -41,6 +41,7 @@ public class Player : MonoBehaviour {
     }
 
     void HandleAnimation() {
+        myAnim.SetBool(playerSetup.groundVariable, IsGrounded());
         if (_myRigid.velocity.x != 0) myAnim.SetBool(playerSetup.runVariable, true);
         else myAnim.SetBool(playerSetup.runVariable, false);
     }
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour {
     void HandleJump() {
         if (Input.GetKeyDown(playerSetup.jumpKey) && IsGrounded()) {
             _myRigid.velocity = Vector2.up * playerSetup.jumpForce;
+            myAnim.SetTrigger(playerSetup.jumpTrigger);
             if (jumpVFX != null) jumpVFX.Play();
             Invoke(nameof(StopWalkParticle), 0.2f);
         }

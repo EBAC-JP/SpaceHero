@@ -18,5 +18,7 @@ public class SOPlayer : ScriptableObject {
     [SerializeField] public KeyCode jumpKey;
     [Header("Animations Trigger")]
     [SerializeField] public string runVariable = "Run";
+    [SerializeField] public string groundVariable = "OnGround";
     [SerializeField] public string deathTrigger = "Death";
+    [SerializeField] public string jumpTrigger = "Jump";
 }
