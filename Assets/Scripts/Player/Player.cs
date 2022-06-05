@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
         myAnim.SetTrigger(playerSetup.deathTrigger);
     }
 
-    bool IsGrounded() {
+    public bool IsGrounded() {
         return Physics2D.Raycast(transform.position, -Vector2.up, _distToGround + playerSetup.spaceToJump);
     }
 
